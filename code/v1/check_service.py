@@ -10,6 +10,12 @@ def mongo() :
 		print 'mongod  ------  running'
 	else : 
 		print 'mongodb  ------  stopped'	
+		print 'starting mongodb :  '
+
+		os.system('sudo service mongodb start')
+
+		print '------ >> now checking the status : << ------ '
+		os.system('sudo service mongodb status')
 
 def apache() : 
 	if 'apache2' in output : 
