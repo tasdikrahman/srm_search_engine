@@ -46,8 +46,7 @@ def ssh() :
 	if 'ssh' in output : 
 		print 'ssh  ------  running'
 	else : 
-		print 'ssh  ------  stopped'
-		print 'ssh  ------  stopped'
+		print 'ssh  ------  stopped'	
 		print 'starting ssh :  '
 
 		os.system('sudo service ssh start')
