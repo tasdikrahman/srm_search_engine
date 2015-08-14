@@ -13,6 +13,7 @@ Reports/
 *.exe
 *.o
 *.so
+*.save
  
 # Packages #
 ############

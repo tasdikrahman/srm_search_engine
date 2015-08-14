@@ -15,6 +15,7 @@ def rewrite() :
 def change_dir() : 
 	current_dir = os.getcwd()
 	if current_dir == '/etc' : 
+		# chaning to the required dir 
 		# if we are already inside the /etc folder 
 		rewrite() 
 	else : 
@@ -23,7 +24,7 @@ def change_dir() :
 		rewrite()
 		
 def reset():  
-	print 'rewriting on the file /etc/resolve.conf to have content as \"nameserver 8.8.8.8\"'
+	# 'rewriting on the file /etc/resolve.conf to have content as \"nameserver 8.8.8.8\"'
 	change_dir()
 
 def main() : 
