@@ -99,9 +99,6 @@ export PATH="$PATH:$HADOOP_HOME/bin"
 		f.write(profile)
 		f.write("\n")
 
-	print 'Closing the file'
-
-
 	############################################################
 	### Editing the configuration files inside hadoop
 
@@ -266,4 +263,3 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 
 if __name__ == "__main__" : 
 	main()
-
