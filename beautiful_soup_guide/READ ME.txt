@@ -1,0 +1,6 @@
+1) #The Python scripts for each chapter with comments are named as 9554_chapter_no.py for example 9554_02.py.
+#For running the scripts you might require active internet connection.
+#For running some of  scripts ecologicalpyramid.html and foo.html is used which is also part of this code bundle.
+
+
+2) Chapter 1 doesn't have any code.
