@@ -4,6 +4,8 @@
 Author : "Tasdik Rahman"
 
 Script to install Hadoop into your system
+
+Note : Run this file as sudo 
 '''
 
 import os
@@ -94,12 +96,11 @@ export PATH="$PATH:$HADOOP_HOME/bin"
 ###
 	"""
 
-	with open('/etc/profile') as f : 
-		f.write("\n")
-		f.write(profile)
-		f.write("\n")
-
-	print 'Closing the file'
+	f = open('/etc/profile','a')  
+	f.write("\n")
+	f.write(profile)
+	f.write("\n")
+	f.close()
 
 
 	############################################################
@@ -112,10 +113,11 @@ export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 	"""
 
-	with open('sudo nano ~/hadoop/conf/hadoop-env.sh', 'a') as f : 
-		f.write('\n')
-		f.write('ipv6')
-		f.write('\n')
+	f = open('~/hadoop/conf/hadoop-env.sh', 'a')
+	f.write('\n')
+	f.write('ipv6')
+	f.write('\n')
+	f.close()
 
 	print 'Creating the tmp file for hadoop '
 
@@ -128,7 +130,7 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 	print 'Editing the core-site.xml'
 
 	## first flushing the contents of the file
-	os.system('echo "" > ~/hadoop/conf/core-site.xml')
+	#os.system('echo "" > ~/hadoop/conf/core-site.xml')
 
 	content = """
 <?xml version="1.0"?>
@@ -154,8 +156,9 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 </configuration>
 	"""
 
-	with open('~/hadoop/conf/core-site.xml', 'w') as f : 
-		f.write(content)
+	f = open('~/hadoop/conf/core-site.xml', 'w') 
+	f.write(content)
+	f.close()
 
 
 	###########################################################3
@@ -164,7 +167,7 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 	print 'Editing the mapred-site.xml'
 
 	## first flushing the contents of the file
-	os.system('echo "" > ~/hadoop/conf/mapred-site.xml')
+	#os.system('echo "" > ~/hadoop/conf/mapred-site.xml')
 
 	content = """
 <?xml version="1.0"?>
@@ -184,8 +187,9 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 </configuration>
 	"""
 
-	with open('~/hadoop/conf/mapred-site.xml', 'w') as f : 
-		f.write(content)
+	f = open('~/hadoop/conf/mapred-site.xml', 'w') 
+	f.write(content)
+	f.close()
 
 
 	###########################################################3
@@ -194,7 +198,7 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 	print 'Editing the mapred-site.xml'
 
 	## first flushing the contents of the file
-	os.system('echo "" > ~/hadoop/conf/mapred-site.xml')
+	#os.system('echo "" > ~/hadoop/conf/mapred-site.xml')
 
 	content = """
 <?xml version="1.0"?>
@@ -214,8 +218,9 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 </configuration>
 	"""
 
-	with open('~/hadoop/conf/mapred-site.xml', 'w') as f : 
-		f.write(content)
+	f = open('~/hadoop/conf/mapred-site.xml', 'w')  
+	f.write(content)
+	f.close()
 
 
 	###########################################################3
@@ -224,7 +229,7 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 	print 'Editing the hdfs-site.xml'
 
 	## first flushing the contents of the file
-	os.system('echo "" > ~/hadoop/conf/hdfs-site.xml')
+	#os.system('echo "" > ~/hadoop/conf/hdfs-site.xml')
 
 	content = """
 <?xml version="1.0"?>
@@ -246,12 +251,14 @@ export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 
 	##### Formatting the hdfs file
 
-	with open('~/hadoop/conf/hdfs-site.xml', 'w') as f : 
-		f.write(content)
+	f = open('~/hadoop/conf/hdfs-site.xml', 'w') 
+	f.write(content)
+	f.close()
 
 	###########################################################3
 	#### Starting the node 
-
+	
+	print 'formatting the name node :\n\n'
 	os.system('~/hadoop/bin/hadoop namenode -format')
 
 	print 'Starting the single node : '
